@@ -1,0 +1,14 @@
+/* Mini Reset CSS */
+
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+#maCarte
+{
+	width: 800px;
+	height: 400px;
+	margin: 0 auto;
+}
