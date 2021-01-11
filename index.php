@@ -1,5 +1,3 @@
-<?php require_once('connect.php') ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -19,6 +17,13 @@
                    crossorigin=""
                    type="text/javascript">
         </script>
+        <script type="text/javascript" src="js/lib.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
+
+        <script>
+            ajax('connect.php', (res) => {
+                console.log(JSON.parse(res.response));
+            })
+        </script>
     </body>
 </html>
