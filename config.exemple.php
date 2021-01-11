@@ -2,7 +2,10 @@
 $grant_type = 'authorization_code';
 
 $client_id = '';
-$client_secret= '';
+$client_secret = '';
+
+$username = '';
+$password = '';
 
 $scope = "read_station";
 
