@@ -10,6 +10,11 @@
                  crossorigin=""/>
     </head>
     <body>
+        <input type="text" name="adresse" id="adresse" list="adresses" placeholder="Saisissez une adresse">
+        <datalist id="adresses"></datalist>
+
+        <input type="submit" name="envoyer" value="Envoyer" onclick="req()">
+
         <div id="maCarte"></div>
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

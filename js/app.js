@@ -22,5 +22,5 @@ map.on('moveend', function() {
 
 
 ajax('connect.php', (res) => {
-	console.log(JSON.parse(res.response));
+	// console.log(JSON.parse(res.response));
 })
