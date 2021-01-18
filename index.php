@@ -19,11 +19,6 @@
         </script>
         <script type="text/javascript" src="js/lib.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-
-        <script>
-            ajax('connect.php', (res) => {
-                console.log(JSON.parse(res.response));
-            })
-        </script>
+        <script type="text/javascript" src="js/autocomplete.js"></script>
     </body>
 </html>

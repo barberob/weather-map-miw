@@ -222,3 +222,14 @@ Array.prototype.merge = function(array) {
     array.forEach((i)=> this.push(array[i]))
     return this
 }
+
+/**************************************************** AJAX */
+
+
+const getParams = () => {
+    let result = []
+    for(var i in objet) {
+        result.push(i + "=" + encodeURIComponent(objet[i]))
+        return result.join('&')
+    }
+}

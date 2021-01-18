@@ -10,7 +10,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 attribution: 'données <a href="https://www.openstreetmap.org/copyright"> OpenStreetMap </a> <span> & </span> <a href="https://www.openstreetmap.fr/"> OSM France </a>',
 minZoom: 1,
 maxZoom: 20,
-}).addTo(map);
+}).addTo(map)
+
 
 const $_GET = param => {
 	var vars = {};
@@ -31,3 +32,7 @@ const $_GET = param => {
 map.on('moveend', function() { 
     console.log(map.getBounds());
 });
+
+ajax('connect.php', (res) => {
+	console.log(JSON.parse(res.response));
+})
