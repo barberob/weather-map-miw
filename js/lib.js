@@ -76,23 +76,6 @@ function Xhr(){  // création d'un requêteHTTP en fonction du navigateur
     return obj
 }
 
-
-/**
- * 
- * @param {String} target - ajax target url / file
- * @callback callback - function to call when ajax done
- */
-function ajax(target, callback){
-    let req =  Xhr()
-    req.onreadystatechange = function() {
-        if (this.readyState == this.DONE) {
-            callback(req)
-        }
-    }
-    req.open("GET", target, true)
-    req.send(null)
-}        
-
 /*********************************************OBJECT****************************************************************/
 
 /**
@@ -226,10 +209,10 @@ Array.prototype.merge = function(array) {
 /**************************************************** AJAX */
 
 
-const getParams = () => {
+const getParams = (object) => {
     let result = []
-    for(var i in objet) {
-        result.push(i + "=" + encodeURIComponent(objet[i]))
+    for(var i in object) {
+        result.push(i + "=" + encodeURIComponent(object[i]))
     }
     return result.join('&')
 }
@@ -248,3 +231,19 @@ const $_GET = param => {
 	}
 	return vars;
 }
+
+/**
+ * 
+ * @param {String} target - ajax target url / file
+ * @callback callback - function to call when ajax done
+ */
+function ajax(target, callback) {
+    let req = Xhr()
+    req.onreadystatechange = function() {
+        if (this.readyState == this.DONE) {
+            callback(req)
+        }
+    }
+    req.open("GET", target, true)
+    req.send(null)
+}        
