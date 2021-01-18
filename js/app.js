@@ -18,6 +18,9 @@ map.on('moveend', function() {
     console.log(map.getBounds());
 });
 
+
+
+
 ajax('connect.php', (res) => {
 	console.log(JSON.parse(res.response));
 })

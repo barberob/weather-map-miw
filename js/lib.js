@@ -230,8 +230,8 @@ const getParams = () => {
     let result = []
     for(var i in objet) {
         result.push(i + "=" + encodeURIComponent(objet[i]))
-        return result.join('&')
     }
+    return result.join('&')
 }
 
 const $_GET = param => {
