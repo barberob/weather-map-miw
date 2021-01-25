@@ -8,12 +8,13 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
                  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
                  crossorigin=""/>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
     <body>
         <input type="text" name="adresse" id="adresse" list="adresses" placeholder="Saisissez une adresse">
         <datalist id="adresses"></datalist>
 
-        <input type="submit" name="envoyer" value="Envoyer" onclick="req()">
+        <input type="submit" class="btn btn-light" name="envoyer" value="Envoyer" onclick="req()">
 
         <div id="maCarte"></div>
 
