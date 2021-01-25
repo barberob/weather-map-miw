@@ -12,7 +12,7 @@ function req()
     {
       let reponse = JSON.parse(this.responseText);
 
-      /*console.log(reponse);*/
+      console.log(reponse);
 
       /*alert(reponse.features.length);*/
 

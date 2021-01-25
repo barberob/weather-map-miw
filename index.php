@@ -12,12 +12,22 @@
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
     <body>
-        <input type="text" name="adresse" id="adresse" list="adresses" placeholder="Saisissez une adresse">
-        <datalist id="adresses"></datalist>
+        <div class="contenu">
+            <div class="saisie">
+                <input type="text" class="form-control" name="adresse" id="adresse" list="adresses" placeholder="Saisissez une adresse">
+                <datalist id="adresses"></datalist>
 
-        <input type="submit" class="btn btn-light" name="envoyer" value="Envoyer" onclick="req()">
+                <!-- <input type="submit" class="btn btn-info send" name="envoyer" id="envoyer" value="Envoyer" onclick="req()"> -->
 
-        <div id="maCarte"></div>
+                <button type="submit" class="btn btn-info send" name="envoyer" id="envoyer" onclick="req()">
+                    Envoyer <img src="images/astronaut.svg" width="24" height="24">
+                </button>
+            </div>
+
+            <div id="maCarte"></div>
+
+            <div class="copyright"> © Benoît Barberot et Théo Meozzi </div>
+        </div>
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
                    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
