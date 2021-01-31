@@ -86,4 +86,58 @@ map.on('moveend', () => {
 })
 
 
+// autocomplete
 
+let datalist = __('#adresses');
+
+function req()
+{
+  // Création d'une instance de la classe XMLHttpRequest
+
+  let req = Xhr();
+
+  req.onreadystatechange = function()
+  {
+    if(this.readyState==this.DONE)
+    {
+      let reponse = JSON.parse(this.responseText);
+
+	  autocomplete(reponse)
+	}
+  };
+
+  // Récupération des infos de la ville en mode asynchrone
+
+  req.open("GET", "https://api-adresse.data.gouv.fr/search/?q="+__('#adresse').value, true); // true pour asynchrone
+
+  req.send(null);
+}
+
+// Actualisation de la requête à chaque caractère tapé dans la saisie (autocomplétion)
+__('input#adresse').addEventListener("input", function(e){req();}, false);
+
+
+
+const autocomplete = (reponse) => {
+	datalist.innerHTML = "";
+
+	for(let i=0; i<reponse.features.length; i++)
+	{
+		createEl("option", {value:reponse.features[i].properties.label}, "", datalist);
+	}
+
+	__('#adresse').setAttribute('list', '');
+	__('#adresse').setAttribute('list', 'adresses');
+}
+
+
+__('button').addEventListener('click', () => {
+	const query = __('#adresse').value.split(' ').join('+')
+	console.log(query)
+	fetch(`https://api-adresse.data.gouv.fr/search/?q=${query}`)
+	.catch(req => console.log('error', req))
+	.then(req => req.json())
+	.then(res => {
+		console.log(res.features[0].geometry.coordinates)
+	})
+})
