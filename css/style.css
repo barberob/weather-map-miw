@@ -7,7 +7,10 @@
 }
 
 /* CSS Mobiles */
-
+label {
+	color: white;
+	/* pour le js */
+}
 body
 {
 	background: url("../images/Astronaute.jpg") no-repeat center center fixed;

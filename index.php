@@ -12,7 +12,7 @@
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
     <body>
-        <div class="saisie">
+        <form class="saisie">
             <input type="text" class="form-control" name="adresse" id="adresse" list="adresses" placeholder="Saisissez une adresse">
             <datalist id="adresses"></datalist>
 
@@ -21,7 +21,7 @@
             <button type="submit" class="btn btn-info send" name="envoyer" id="envoyer" onclick="req()">
                 Envoyer <img src="images/astronaut.svg" width="24" height="24">
             </button>
-        </div>
+        </form>
 
         <div id="maCarte"></div>
 

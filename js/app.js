@@ -92,7 +92,7 @@ let datalist = __('#adresses');
 
 function req()
 {
-	if(__('#adresse').value == '') return
+	if(__('#adresse').value === '') return
   // Création d'une instance de la classe XMLHttpRequest
 
   let req = Xhr();
@@ -132,17 +132,25 @@ const autocomplete = (reponse) => {
 }
 
 
-__('button').addEventListener('click', () => {
+__('form').addEventListener('submit', e => {
+	e.preventDefault()
 	if(__('#adresse').value == '') return
+
 	const query = __('#adresse').value.split(' ').join('+')
 	console.log(query)
 	fetch(`https://api-adresse.data.gouv.fr/search/?q=${query}`)
 	.catch(req => console.log('error', req))
 	.then(req => req.json())
 	.then(res => {
+		if (__('label')) __('label').remove()
+		if(res.features.length === 0 || res.features[0].properties.score < 0.5) {
+			__('form').prepend(createEl('label', {for : 'adresse'}, 'Veuillez entrer une adresse plus précise'))
+			return
+		}
 		console.log(res.features[0].geometry.coordinates)
 		const [lng, lat] = res.features[0].geometry.coordinates
 		map.setView([lat, lng])
 		fetchMarkers()
 	})
+	.catch(res => console.log(res))
 })
