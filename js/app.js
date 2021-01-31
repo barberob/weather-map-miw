@@ -92,6 +92,7 @@ let datalist = __('#adresses');
 
 function req()
 {
+	if(__('#adresse').value == '') return
   // Création d'une instance de la classe XMLHttpRequest
 
   let req = Xhr();
@@ -132,6 +133,7 @@ const autocomplete = (reponse) => {
 
 
 __('button').addEventListener('click', () => {
+	if(__('#adresse').value == '') return
 	const query = __('#adresse').value.split(' ').join('+')
 	console.log(query)
 	fetch(`https://api-adresse.data.gouv.fr/search/?q=${query}`)
@@ -139,5 +141,8 @@ __('button').addEventListener('click', () => {
 	.then(req => req.json())
 	.then(res => {
 		console.log(res.features[0].geometry.coordinates)
+		const [lng, lat] = res.features[0].geometry.coordinates
+		map.setView([lat, lng])
+		fetchMarkers()
 	})
 })
