@@ -36,4 +36,6 @@ function req()
   req.send(null);
 }
 
+// Actualisation de la requête à chaque caractère tapé dans la saisie (autocomplétion)
+
 __('#adresse').addEventListener("input", function(e){req();}, false);
