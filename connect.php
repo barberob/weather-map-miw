@@ -15,6 +15,7 @@ $client = new \Netatmo\Clients\NAApiClient($config);
 
 $client->setVariable('username', 'buzzcola73@hotmail.fr');
 $client->setVariable('password', 'k9UApbUddbc94u3++');
+
 try
 {
     $tokens = $client->getAccessToken();
