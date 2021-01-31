@@ -15,12 +15,12 @@ body
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .saisie
 {
-	margin-top: 20px;
+	margin-top: 50px;
 	margin: 0 auto;
 	width: 100%;
 }
@@ -43,7 +43,7 @@ body
 #maCarte
 {
 	width: 400px;
-	height: 250px;
+	height: 500px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
@@ -74,6 +74,11 @@ body
 
 @media screen and (min-width: 768px)
 {
+	.saisie
+	{
+		margin-top: 30px;
+	}
+
 	#maCarte
 	{
 		width: 700px;
