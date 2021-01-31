@@ -35,6 +35,5 @@
         <script src="js/marker_group.js"></script>
         <script type="text/javascript" src="js/lib.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/autocomplete.js"></script>
     </body>
 </html>
