@@ -12,8 +12,7 @@ body
 {
 	background: url("../images/Astronaute.jpg") no-repeat center center fixed;
 	background-size: cover;
-	/*background-repeat: none;*/
-	/*background-position: center;*/
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -61,12 +60,13 @@ body
 	{
 		display: flex;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: center;
 	}
 
 	#maCarte
 	{
 		width: 90%;
+		height: 300px;
 	}
 }
 
@@ -77,29 +77,39 @@ body
 	#maCarte
 	{
 		width: 700px;
-		height: 300px;
+		height: 400px;
+	}
+}
+
+/* CSS Laptops */
+
+@media screen and (min-width: 992px)
+{
+	#maCarte
+	{
+		width: 800px;
+		height: 500px;
 	}
 }
 
 /* CSS Ordinateurs */
 
-@media screen and (min-width: 992px)
+@media screen and (min-width: 1200px)
 {
-	.saisie
-	{
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-	}
-
-	#adresse
-	{
-		width: 500px;
-	}
-
 	#maCarte
 	{
-		width: 800px;
+		width: 1000px;
 		height: 500px;
+	}
+}
+
+/* CSS Ordinateurs Extra-larges */
+
+@media screen and (min-width: 1400px)
+{
+	#maCarte
+	{
+		width: 1200px;
+		height: 600px;
 	}
 }
