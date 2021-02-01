@@ -1,3 +1,10 @@
+
+let average = {}
+
+const getAvg = arr => {
+	return arr.reduce((a, b) => a + b) / arr.length;
+}
+
 /**
  * récupère les stations netatmo dans la zone de la carte
  * puis appelle updateMap()
@@ -25,13 +32,21 @@ const fetchMarkers = () => {
 const updateMap = (data) => {
 	
 	this.markers.clearLayers()
-	
+	average.temperature = []
+	average.humidity    = []
+	average.pressure    = []
 	for(let el of data) {
 		const [lng, lat] = el.place.location
 		const marker = L.marker([lat, lng])
 		marker.bindPopup(createPopupText(el))
 		this.markers.addLayer(marker)
 	}
+
+	console.log(average);
+	// average.temperature = getAvg(average.temperature)
+	// average.humidity    = getAvg(average.humidity)
+	// average.pressure    = getAvg(average.pressure)
+
 	map.addLayer(this.markers)
 }
 
@@ -47,15 +62,17 @@ const createPopupText = (station) => {
 	[...Object.entries(station.measures)].forEach(measure => {
 		if (measure[1].type) {
 			for (let i = 0; i < measure[1].type.length; i++) {
-				const data_type = measure[1].type[i]
-				
+				let data_type = measure[1].type[i]
+				let value = Object.values(measure[1].res)[0][i]
+
 				if(data_type === 'temperature') {
-					str += `Température : ${Object.values(measure[1].res)[0][i]} °c <br>`
+					str += `Température : ${value} °c <br>`
 				} else if (data_type === 'humidity') {
-					str += `Humidité : ${Object.values(measure[1].res)[0][i]} % <br>`
+					str += `Humidité : ${value} % <br>`
 				} else {
-					str += `Pression : ${Object.values(measure[1].res)[0][i]} mbar <br>`
+					str += `Pression : ${value} mbar <br>`
 				}
+				average[data_type].push(value)
 			}
 		}
 	})
@@ -102,7 +119,6 @@ function req()
     if(this.readyState==this.DONE)
     {
       let reponse = JSON.parse(this.responseText);
-
 	  autocomplete(reponse)
 	}
   };
@@ -121,19 +137,17 @@ __('input#adresse').addEventListener("input", function(e){req();}, false);
 
 const autocomplete = (reponse) => {
 	datalist.innerHTML = "";
-
 	for(let i=0; i<reponse.features.length; i++)
 	{
 		createEl("option", {value:reponse.features[i].properties.label}, "", datalist);
 	}
-
 	__('#adresse').setAttribute('list', '');
 	__('#adresse').setAttribute('list', 'adresses');
 }
 
-
 __('form').addEventListener('submit', e => {
 	e.preventDefault()
+
 	if(__('#adresse').value == '') return
 
 	const query = __('#adresse').value.split(' ').join('+')
