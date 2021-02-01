@@ -23,9 +23,37 @@
             </button>
         </form>
 
-        <div id="maCarte"></div>
+        <div class="infoMap">
+            <div id="maCarte"></div>
+            
+            <table class="table">
+                <thead align="center">
+                    <tr>
+                      <th scope="col"> Donnée </th>
+                      <th scope="col"> Moyenne de l'aperçu </th>
+                    </tr>
+                </thead>
 
-        <div class="copyright"> © Benoît Barberot et Théo Meozzi </div>
+                <tbody align="center">
+                    <tr class="table-info">
+                      <th scope="row"> Température </th>
+                      <td></td>
+                    </tr>
+
+                    <tr class="table-info">
+                      <th scope="row"> Humidité </th>
+                      <td></td>
+                    </tr>
+
+                    <tr class="table-info">
+                      <th scope="row"> Pression </th>
+                      <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- <div class="copyright"> © Benoît Barberot et Théo Meozzi </div> -->
 
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
                    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
