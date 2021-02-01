@@ -16,10 +16,29 @@ body
 {
 	background: url("../images/Astronaute.jpg") no-repeat center center fixed;
 	background-size: cover;
-	height: 100vh;
+	/*height: 100vh;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+}
+
+.infoMap
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.table
+{
+	width: 300px !important;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+thead tr
+{
+	background-color: #FFFFFF;
 }
 
 .saisie
@@ -100,7 +119,7 @@ body
 	#maCarte
 	{
 		width: 1000px;
-		height: 600px;
+		height: 500px;
 	}
 }
 
