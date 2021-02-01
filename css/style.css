@@ -25,13 +25,13 @@ body
 .infoMap
 {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	flex-direction: column-reverse;
+	justify-content: center;
 }
 
 .table
 {
-	width: 300px !important;
+	width: 100%;
 	margin: 0 auto;
 	margin-top: 30px;
 }
@@ -86,6 +86,11 @@ thead tr
 		justify-content: center;
 	}
 
+	.table
+	{
+		width: 300px !important;
+	}
+
 	#maCarte
 	{
 		width: 90%;
@@ -96,9 +101,15 @@ thead tr
 
 @media screen and (min-width: 768px)
 {
+	.infoMap
+	{
+		flex-direction: row;
+	}
+
 	#maCarte
 	{
-		width: 700px;
+		width: 650px;
+		margin-right: 10px;
 	}
 }
 
