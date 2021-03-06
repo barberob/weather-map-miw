@@ -27,18 +27,7 @@ body
 	display: flex;
 	flex-direction: column-reverse;
 	justify-content: center;
-}
-
-.table
-{
-	width: 100%;
 	margin: 0 auto;
-	margin-top: 30px;
-}
-
-thead tr
-{
-	background-color: #FFFFFF;
 }
 
 .saisie
@@ -63,9 +52,21 @@ thead tr
 	width: 200px;
 }
 
+.table
+{
+	width: 400px !important;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+thead tr
+{
+	background-color: #FFFFFF;
+}
+
 #maCarte
 {
-	width: 400px;
+	width: 90% !important;
 	height: 500px;
 	margin: 0 auto;
 	margin-top: 30px;
@@ -86,14 +87,15 @@ thead tr
 		justify-content: center;
 	}
 
-	.table
+	/*.table
 	{
-		width: 300px !important;
-	}
+		width: 100%;
+	}*/
 
 	#maCarte
 	{
-		width: 90%;
+		width: 95%;
+		height: 400px;
 	}
 }
 
@@ -108,7 +110,7 @@ thead tr
 
 	#maCarte
 	{
-		width: 650px;
+		width: 650px !important;
 		margin-right: 10px;
 	}
 }
@@ -119,7 +121,7 @@ thead tr
 {
 	#maCarte
 	{
-		width: 800px;
+		width: 800px !important;
 	}
 }
 
@@ -129,7 +131,7 @@ thead tr
 {
 	#maCarte
 	{
-		width: 1000px;
+		width: 800px !important;
 		height: 500px;
 	}
 }
@@ -140,7 +142,7 @@ thead tr
 {
 	#maCarte
 	{
-		width: 1200px;
+		width: 1000px !important;
 		height: 700px;
 	}
 }
