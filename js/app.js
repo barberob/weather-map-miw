@@ -1,9 +1,9 @@
 
 let average = {} // moyennes
 
-const td_temp     = document.querySelector('.js-temp')
-const td_humidity = document.querySelector('.js-humidity')
-const td_pressure = document.querySelector('.js-pressure')
+const td_temp     = __('.js-temp')
+const td_humidity = __('.js-humidity')
+const td_pressure = __('.js-pressure')
 
 
 const getAvg = arr => {
@@ -168,7 +168,7 @@ __('form').addEventListener('submit', e => {
 	.then(res => {
 		if (__('label')) __('label').remove()
 		if(res.features.length === 0 || res.features[0].properties.score < 0.5) {
-			__('form').prepend(createEl('label', {for : 'adresse'}, 'Veuillez entrer une adresse plus précise'))
+			__('.input_container').prepend(createEl('label', {for : 'adresse'}, 'Veuillez entrer une adresse plus précise'))
 			return
 		}
 		const [lng, lat] = res.features[0].geometry.coordinates

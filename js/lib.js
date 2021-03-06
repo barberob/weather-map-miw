@@ -1,57 +1,4 @@
-/***************************************************FUNCTIONS*********************************************** */
 "use strict"
-let lib_params = {
-    experimental : false
-}
-
-/**
- * check if element is a "pure" object
- * @param {obj} element - element to check
- * @returns {Boolean}
- */
-let isObject = (element) => {
-    var type = typeof obj
-    return type === 'function' || type === 'object' && !!obj && Object.prototype.toString.call(obj) !== '[object Array]'
-}
-
-/**
- * check if item is or "is like" a number 
- * @param {String, Int} item
- * @returns {Boolean}
- */
-let isNumber = (item) => {
-    return /^[+-]?((\d*\.?\d+)|(\d+\.?\d*))$/.test(item)
-}
-
-/**
- * check if item is or "is like" a positive integer 
- * @param {String, Int} item
- * @returns {Boolean}
- */
-let isPosInt = (item) => {
-    return /^[+]?\d+$/.test(str)
-}
-
-/**
- * count how many c in str
- * @param {String} c - what to search for
- * @param {String} ch - where to search
- * @returns {Int}
- */
-let count = (char, str) => {
-    return str.split(char).length - 1
-}
-
-/**
- * @param {Number} min 
- * @param {Number} max 
- * @returns {Number}
- */
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 
 /**
@@ -74,36 +21,6 @@ function Xhr(){  // création d'un requêteHTTP en fonction du navigateur
         }
     }
     return obj
-}
-
-/*********************************************OBJECT****************************************************************/
-
-/**
- * /!\ EXPERIMENTAL
- * just a foreach but for objects and strings /!\ reversed key value for arrays and strings
- * @callback callback
- */
-
-if (lib_params.experimental) {
-
-    Object.prototype.each = function(callback) {
-        let index = 0
-        for(const [key, value] of Object.entries(this)) {
-            callback(key,value, index)
-            index++
-        }
-    }
-}
-
-
-
-/************************************************STRING*************************************************************/
-/**
- * camelise a string
- * @returns {String}
- */
-String.prototype.toCamelCase = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase()
 }
 
 
@@ -147,64 +64,6 @@ let __ = selector => {
     return null;
 }
 
-/**
- * appendChild() all Nodes of an array to the Node
- * @param {Array} array 
- */
-Node.prototype.appendChildren = function(array) {
-    let frag = new DocumentFragment()
-    array.forEach(element => frag.appendChild(element))
-    this.appendChild(frag)
-}
-
-/**
- * apply css rules given in obj
- * @param {Object} obj - css rules (camelCase)
- * @returns {Node}
- */
-Node.prototype.css = function(obj) {
-    for(let i in obj){
-        this.style[i] = obj[i]
-    }
-    return this
-}
-
-
-
-
-/***************************************************NODELIST**********************************************************/
-
-/**
- * apply an event listener to all element of a nodeList
- * @param {String} listener - which event to listen to
- * @param {Function} listenerCallback - which callback function to set to the event listener
- */
-NodeList.prototype.listen = function(listener, listenerCallback) {
-    this.forEach(el => el.addEventListener(listener, listenerCallback))
-}
-
-
-/*****************************************************ARRAY********************************************************/
-/**
- * swap Array[a] and Array[b]
- * @param {Int} a - index 1 
- * @param {Int} b - index 2
- */
-Array.prototype.swap = function(a,b) {
-    let temp = this[a]
-    this[a] = this[b]
-    this[b] = temp
-}
-
-/**
- * merge two Arrays
- * @param {Array} array 
- * @returns {Array}
- */
-Array.prototype.merge = function(array) { 
-    array.forEach((i)=> this.push(array[i]))
-    return this
-}
 
 /**************************************************** AJAX */
 
@@ -216,34 +75,3 @@ const getParams = (object) => {
     }
     return result.join('&')
 }
-
-const $_GET = param => {
-	var vars = {};
-	window.location.href.replace( location.hash, '' ).replace( 
-		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-		function( m, key, value ) { // callback
-			vars[key] = value !== undefined ? value : '';
-		}
-	);
-
-	if ( param ) {
-		return vars[param] ? vars[param] : null;	
-	}
-	return vars;
-}
-
-/**
- * 
- * @param {String} target - ajax target url / file
- * @callback callback - function to call when ajax done
- */
-function ajax(target, callback) {
-    let req = Xhr()
-    req.onreadystatechange = function() {
-        if (this.readyState == this.DONE) {
-            callback(req)
-        }
-    }
-    req.open("GET", target, true)
-    req.send(null)
-}        

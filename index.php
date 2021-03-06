@@ -13,7 +13,9 @@
     </head>
     <body>
         <form class="saisie">
-            <input type="text" class="form-control" name="adresse" id="adresse" list="adresses" placeholder="Saisissez une adresse">
+            <div class="input_container">
+                <input type="text" class="form-control" name="adresse" id="adresse" list="adresses" placeholder="Saisissez une adresse">
+            </div>
             <datalist id="adresses"></datalist>
 
             <!-- <input type="submit" class="btn btn-info send" name="envoyer" id="envoyer" value="Envoyer" onclick="req()"> -->
