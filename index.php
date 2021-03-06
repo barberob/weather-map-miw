@@ -37,17 +37,17 @@
                 <tbody align="center">
                     <tr class="table-info">
                       <th scope="row"> Température </th>
-                      <td></td>
+                      <td class="js-temp"></td>
                     </tr>
 
                     <tr class="table-info">
                       <th scope="row"> Humidité </th>
-                      <td></td>
+                      <td class="js-humidity"></td>
                     </tr>
 
                     <tr class="table-info">
                       <th scope="row"> Pression </th>
-                      <td></td>
+                      <td class="js-pressure"></td>
                     </tr>
                 </tbody>
             </table>

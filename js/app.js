@@ -1,8 +1,13 @@
 
-let average = {}
+let average = {} // moyennes
+
+const td_temp     = document.querySelector('.js-temp')
+const td_humidity = document.querySelector('.js-humidity')
+const td_pressure = document.querySelector('.js-pressure')
+
 
 const getAvg = arr => {
-	return arr.reduce((a, b) => a + b) / arr.length;
+	return (arr.reduce((a, b) => a + b) / arr.length).toFixed(2);
 }
 
 /**
@@ -42,11 +47,7 @@ const updateMap = (data) => {
 		this.markers.addLayer(marker)
 	}
 
-	console.log(average);
-	// average.temperature = getAvg(average.temperature)
-	// average.humidity    = getAvg(average.humidity)
-	// average.pressure    = getAvg(average.pressure)
-
+	displayAverageValues()
 	map.addLayer(this.markers)
 }
 
@@ -77,6 +78,16 @@ const createPopupText = (station) => {
 		}
 	})
 	return str
+}
+
+const displayAverageValues = () => {
+	average.temperature = getAvg(average.temperature)
+	average.humidity    = getAvg(average.humidity)
+	average.pressure    = getAvg(average.pressure)
+
+	td_temp.textContent     = `${average.temperature} °c`
+	td_humidity.textContent = `${average.humidity} %`
+	td_pressure.textContent = `${average.pressure} mbar`
 }
 
 
@@ -151,7 +162,6 @@ __('form').addEventListener('submit', e => {
 	if(__('#adresse').value == '') return
 
 	const query = __('#adresse').value.split(' ').join('+')
-	console.log(query)
 	fetch(`https://api-adresse.data.gouv.fr/search/?q=${query}`)
 	.catch(req => console.log('error', req))
 	.then(req => req.json())
@@ -161,7 +171,6 @@ __('form').addEventListener('submit', e => {
 			__('form').prepend(createEl('label', {for : 'adresse'}, 'Veuillez entrer une adresse plus précise'))
 			return
 		}
-		console.log(res.features[0].geometry.coordinates)
 		const [lng, lat] = res.features[0].geometry.coordinates
 		map.setView([lat, lng])
 		fetchMarkers()
