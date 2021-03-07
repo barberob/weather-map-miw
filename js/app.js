@@ -122,7 +122,6 @@ function req()
 {
 	if(__('#adresse').value === '') return
   // Création d'une instance de la classe XMLHttpRequest
-
   let req = Xhr();
 
   req.onreadystatechange = function()
@@ -143,8 +142,6 @@ function req()
 
 // Actualisation de la requête à chaque caractère tapé dans la saisie (autocomplétion)
 __('input#adresse').addEventListener("input", function(e){req();}, false);
-
-
 
 const autocomplete = (reponse) => {
 	datalist.innerHTML = "";
