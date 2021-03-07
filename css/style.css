@@ -97,6 +97,11 @@ thead tr
 		justify-content: center;
 	}
 
+	.table
+	{
+		margin-right: 10px;
+	}
+
 	.infoMap
 	{
 		flex-direction: row;
@@ -105,6 +110,7 @@ thead tr
 	#maCarte
 	{
 		width: 650px !important;
+		margin-left: 10px;
 		margin-right: 10px;
 	}
 }
