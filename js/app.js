@@ -140,6 +140,8 @@ map.on('moveend', () => {
 })
 
 
+window.addEventListener('resize', () => map.invalidateSize())
+
 // autocomplete
 
 let datalist = __('#adresses');
