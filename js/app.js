@@ -7,7 +7,8 @@ const td_pressure = __('.js-pressure')
 
 
 const getAvg = arr => {
-	return (arr.reduce((a, b) => a + b) / arr.length).toFixed(2);
+	if (arr.length > 0) return (arr.reduce((a, b) => a + b) / arr.length).toFixed(2)
+	else return null
 }
 
 /**
@@ -85,9 +86,16 @@ const displayAverageValues = () => {
 	average.humidity    = getAvg(average.humidity)
 	average.pressure    = getAvg(average.pressure)
 
-	td_temp.textContent     = `${average.temperature} °c`
-	td_humidity.textContent = `${average.humidity} %`
-	td_pressure.textContent = `${average.pressure} mbar`
+	if (average.temperature && average.humidity && average.pressure) {
+		td_temp.textContent     = `${average.temperature} °c`
+		td_humidity.textContent = `${average.humidity} %`
+		td_pressure.textContent = `${average.pressure} mbar`
+	} else {
+		let str = 'Pas de données'
+		td_temp.textContent     = str
+		td_humidity.textContent = str
+		td_pressure.textContent = str
+	}
 }
 
 
@@ -103,6 +111,23 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 	maxZoom: 20,
 }).addTo(map)
 
+map.setMaxBounds(
+	L.latLngBounds(
+		L.latLng(-89.98155760646617, -179),
+		L.latLng(89.99346179538875, 179)
+	)
+);
+
+// remove anim on max bounds
+map.on("drag", () => {
+	map.panInsideBounds(
+		L.latLngBounds(
+		L.latLng(-89.98155760646617, -179),
+		L.latLng(89.99346179538875, 179)
+		),
+		{ animate: false }
+	);
+});
 
 
 this.markers = L.markerClusterGroup()
