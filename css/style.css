@@ -7,7 +7,9 @@
 }
 
 /* CSS Mobiles */
-label {
+
+label
+{
 	color: white;
 	/* pour le js */
 }
@@ -16,7 +18,6 @@ body
 {
 	background: url("../images/Astronaute.jpg") no-repeat center center fixed;
 	background-size: cover;
-	/*height: 100vh;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -34,7 +35,6 @@ body
 {
 	margin-top: 30px !important;
 	margin: 0 auto;
-	width: 100%;
 }
 
 #adresse
@@ -67,7 +67,7 @@ thead tr
 #maCarte
 {
 	width: 90% !important;
-	height: 500px;
+	height: 400px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
@@ -80,22 +80,9 @@ thead tr
 
 @media screen and (min-width: 400px)
 {
-	.saisie
-	{
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-	}
-
-	/*.table
+	.infoMap
 	{
 		width: 100%;
-	}*/
-
-	#maCarte
-	{
-		width: 95%;
-		height: 400px;
 	}
 }
 
@@ -103,6 +90,13 @@ thead tr
 
 @media screen and (min-width: 768px)
 {
+	.saisie
+	{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
 	.infoMap
 	{
 		flex-direction: row;
