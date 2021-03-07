@@ -111,6 +111,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 	maxZoom: 20,
 }).addTo(map)
 
+
+// limite au bord de la carte
 map.setMaxBounds(
 	L.latLngBounds(
 		L.latLng(-89.98155760646617, -179),
@@ -118,7 +120,6 @@ map.setMaxBounds(
 	)
 );
 
-// remove anim on max bounds
 map.on("drag", () => {
 	map.panInsideBounds(
 		L.latLngBounds(
